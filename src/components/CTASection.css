@@ -17,7 +17,8 @@
 .cta-title {
     font-family: var(--font-heading);
     font-size: clamp(32px, 6vw, 56px);
-    color: var(--color-text-dark);
+    color: var(--color-ivory);
+    /* Enforce light color on brown background */
     /* Ensure visibility in dark mode */
     max-width: 900px;
 }
@@ -83,7 +84,8 @@
     border: 1px solid rgba(198, 168, 94, 0.3);
     border-radius: 8px;
     padding: 1rem 1.25rem;
-    color: var(--color-text-dark);
+    color: var(--color-ivory);
+    /* Enforce light input text */
     font-family: var(--font-body);
     font-size: 1rem;
     outline: none;
@@ -91,7 +93,8 @@
 }
 
 .cta-input::placeholder {
-    color: var(--color-text-dark);
+    color: var(--color-ivory);
+    /* Enforce light placeholder */
     opacity: 0.4;
 }
 

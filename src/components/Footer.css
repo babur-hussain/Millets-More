@@ -1,7 +1,8 @@
 .footer {
     background-color: var(--color-warm-brown);
     padding: var(--spacing-xxl) 0 var(--spacing-md) 0;
-    color: var(--color-text-dark);
+    color: var(--color-ivory);
+    /* Enforce light text on dark background */
 }
 
 .footer-top {
@@ -25,7 +26,8 @@
     font-family: var(--font-heading);
     font-size: 1.5rem;
     letter-spacing: 0.1em;
-    color: var(--color-text-dark);
+    color: var(--color-ivory);
+    /* Enforce light logo text */
     /* In ref it says Millets & More but the user's name is Kavya Kapoor. The file uses Kavya Kapoor text below but Millets & More top left on actual. Assuming text is fine */
 }
 
@@ -47,7 +49,8 @@
     font-family: var(--font-body);
     font-size: 0.85rem;
     letter-spacing: 0.15em;
-    color: var(--color-text-dark);
+    color: var(--color-ivory);
+    /* Enforce light link text */
     opacity: 0.8;
     transition: opacity var(--transition-smooth), color var(--transition-smooth);
 }
@@ -124,7 +127,8 @@
 .footer-bottom-link {
     font-family: var(--font-body);
     font-size: 0.9rem;
-    color: var(--color-text-dark);
+    color: var(--color-ivory);
+    /* Enforce light link text */
     opacity: 0.8;
     transition: color var(--transition-smooth);
 }
