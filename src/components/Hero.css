@@ -15,7 +15,8 @@
     z-index: 2;
     text-align: center;
     max-width: 800px;
-    color: var(--color-text-dark);
+    color: var(--color-ivory);
+    /* Enforce light text for contrast */
     padding-top: var(--spacing-xxl);
     /* To clear header */
 }
@@ -26,7 +27,8 @@
     font-weight: 400;
     letter-spacing: 0.02em;
     margin-bottom: var(--spacing-sm);
-    color: var(--color-text-dark);
+    color: var(--color-ivory);
+    /* Enforce light text */
 }
 
 .hero-subtitle {
@@ -44,8 +46,8 @@
     font-style: italic;
     line-height: 1.4;
     margin-bottom: var(--spacing-lg);
-    color: var(--color-text-dark);
-    /* Using ivory */
+    color: var(--color-ivory);
+    /* Enforce ivory */
     opacity: 0.8;
 }
 
