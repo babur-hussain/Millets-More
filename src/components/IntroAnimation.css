@@ -36,8 +36,8 @@
 .intro-text {
     font-family: var(--font-heading);
     font-size: clamp(32px, 8vw, 42px);
-    color: var(--color-warm-brown);
-    /* Dark deep chocolate contrast */
+    color: #FFFFFF;
+    /* White text color as requested */
     letter-spacing: 0.05em;
     opacity: 0;
     transform: translateY(10px);
