@@ -38,7 +38,7 @@ function CTASection() {
                         <span className="text-label" style={{ marginBottom: 'var(--spacing-md)' }}>REQUEST ORDER CALLBACK</span>
                         <form className="cta-form" onSubmit={(e) => e.preventDefault()}>
                             <input type="text" className="cta-input" placeholder="Your Name" required />
-                            <input type="email" className="cta-input" placeholder="Your Email" required />
+                            <input type="tel" className="cta-input" placeholder="Phone Number" required />
                             <button type="submit" className="btn-gold-outline">
                                 Submit Request
                             </button>
