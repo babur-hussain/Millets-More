@@ -1,0 +1,118 @@
+.collections-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.collections-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    color: var(--color-warm-brown);
+    margin-bottom: var(--spacing-sm);
+}
+
+.collections-divider {
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-muted-gold);
+    margin: 0 auto;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    /* Increased for bespoke feel */
+}
+
+/* Make the first two items larger on desktop to break monotony */
+@media (min-width: 900px) {
+    .collections-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .collection-card:nth-child(1),
+    .collection-card:nth-child(2) {
+        grid-column: span 3;
+        aspect-ratio: 16/9;
+    }
+
+    .collection-card:nth-child(3),
+    .collection-card:nth-child(4),
+    .collection-card:nth-child(5) {
+        grid-column: span 2;
+    }
+}
+
+.collection-card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.collection-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    /* Default to square, overridden above for some */
+    margin-bottom: var(--spacing-sm);
+    background-color: var(--color-warm-brown);
+    /* fallback */
+}
+
+@media (min-width: 900px) {
+
+    .collection-card:nth-child(1) .collection-image-wrapper,
+    .collection-card:nth-child(2) .collection-image-wrapper {
+        aspect-ratio: 16/9;
+    }
+}
+
+.collection-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.collection-card:hover .collection-img {
+    transform: scale(1.05);
+}
+
+.collection-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Darker overlay for dark mode */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+}
+
+.collection-card:hover .collection-overlay {
+    opacity: 1;
+}
+
+.collection-action {
+    color: var(--color-text-dark);
+    /* Using ivory */
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--color-text-dark);
+    padding-bottom: 2px;
+}
+
+.collection-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    text-align: center;
+    letter-spacing: 0.1em;
+    padding-top: var(--spacing-sm);
+}

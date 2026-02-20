@@ -1,0 +1,150 @@
+.category-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-main {
+    flex-grow: 1;
+    padding-top: calc(var(--spacing-xxl) + var(--spacing-md));
+    /* Push down past fixed header */
+    padding-bottom: var(--spacing-xl);
+}
+
+.back-link {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-warm-brown);
+    opacity: 0.7;
+    margin-bottom: var(--spacing-lg);
+    transition: opacity var(--transition-smooth);
+}
+
+.back-link:hover {
+    opacity: 1;
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.category-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 6rem);
+    /* Huge luxury heading */
+    color: var(--color-text-dark);
+    /* Ivory for dark mode */
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 0.05em;
+    /* Relaxed letter spacing for bespoke feel */
+}
+
+.category-divider {
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-muted-gold);
+    margin: 0 auto var(--spacing-sm);
+}
+
+.category-subtitle {
+    font-family: var(--font-heading-alt);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-style: italic;
+    color: var(--color-text-dark);
+    opacity: 0.8;
+}
+
+/* Minimal Luxury Grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: var(--spacing-xl);
+        column-gap: var(--spacing-md);
+    }
+}
+
+@media (min-width: 1200px) {
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: var(--spacing-xxl);
+    }
+}
+
+.cat-product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centered elegant look */
+    text-align: center;
+    padding: var(--spacing-sm);
+    /* Add breathing room around each item */
+}
+
+.cat-product-image-container {
+    width: 100%;
+    aspect-ratio: 4/5;
+    /* Tall, premium fashion feel */
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+}
+
+.cat-product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+    /* Soft hover zoom */
+}
+
+.cat-product-card:hover .cat-product-image {
+    transform: scale(1.05);
+}
+
+.cat-product-info {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cat-product-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-text-dark);
+    /* Ivory */
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: 0.05em;
+}
+
+.cat-product-desc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    /* Increased line height for editorial aesthetic */
+    color: var(--color-text-dark);
+    opacity: 0.6;
+    /* Reduced opacity */
+    margin-bottom: var(--spacing-sm);
+    min-height: 2.85rem;
+    /* Space for ~2 lines */
+}
+
+.cat-product-price {
+    font-family: var(--font-heading-alt);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-muted-gold);
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+}

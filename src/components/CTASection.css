@@ -1,0 +1,127 @@
+.cta-section {
+    text-align: center;
+    border-top: 1px solid rgba(244, 237, 230, 0.08);
+    /* soft ivory border */
+    border-bottom: 1px solid rgba(244, 237, 230, 0.08);
+    /* soft ivory border */
+}
+
+.cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.cta-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-text-dark);
+    /* Ensure visibility in dark mode */
+}
+
+.order-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    width: 100%;
+    max-width: 600px;
+    margin-top: var(--spacing-sm);
+}
+
+@media (min-width: 768px) {
+    .order-options {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        max-width: 900px;
+    }
+}
+
+.order-option {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-muted-gold);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    padding: var(--spacing-md) 0;
+    opacity: 0.6;
+}
+
+@media (min-width: 768px) {
+    .order-divider {
+        padding: 0 var(--spacing-lg);
+        height: 100%;
+        margin-top: 2rem;
+    }
+}
+
+.whatsapp-btn {
+    width: 100%;
+    max-width: 350px;
+}
+
+.luxury-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    width: 100%;
+    max-width: 350px;
+}
+
+.luxury-input {
+    background: transparent;
+    border: 1px solid rgba(198, 168, 94, 0.3);
+    /* subtle gold accent */
+    border-radius: 8px;
+    /* soft rounded inputs */
+    padding: 1rem 1.5rem;
+    color: var(--color-text-dark);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    transition: all var(--transition-smooth);
+}
+
+.luxury-input::placeholder {
+    color: rgba(244, 237, 230, 0.4);
+}
+
+.luxury-input:focus {
+    border-color: var(--color-muted-gold);
+    /* gold accent border on focus */
+    box-shadow: 0 0 15px rgba(198, 168, 94, 0.1);
+}
+
+.submit-btn {
+    margin-top: var(--spacing-xs);
+}
+
+.thank-you-message {
+    padding: var(--spacing-lg) var(--spacing-md);
+    border: 1px solid rgba(198, 168, 94, 0.5);
+    /* subtle gold border */
+    border-radius: 8px;
+    background: rgba(198, 168, 94, 0.05);
+    /* very soft gold tint */
+    max-width: 400px;
+}
+
+.thank-you-title {
+    font-family: var(--font-heading);
+    color: var(--color-muted-gold);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 300;
+}

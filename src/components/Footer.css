@@ -1,0 +1,116 @@
+.footer {
+    background-color: var(--color-beige);
+    /* Espresso brown */
+    color: var(--color-ivory);
+    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background-color: rgba(212, 175, 55, 0.3);
+    /* faint gold line */
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.footer-brand {
+    max-width: 300px;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-muted-gold);
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: 0.05em;
+}
+
+.footer-tagline {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(253, 251, 247, 0.6);
+}
+
+.footer-links-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.footer-heading {
+    font-family: var(--font-heading-alt);
+    font-size: 1.25rem;
+    color: var(--color-muted-gold);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.footer-links li,
+.footer-links a {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(253, 251, 247, 0.8);
+    transition: color var(--transition-smooth);
+}
+
+.footer-links a:hover {
+    color: var(--color-muted-gold);
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(253, 251, 247, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(253, 251, 247, 0.5);
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.footer-legal {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.footer-legal a:hover {
+    color: var(--color-ivory);
+}

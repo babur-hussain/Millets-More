@@ -1,0 +1,96 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    /* Remove template-like card backgrounds */
+    height: 100%;
+}
+
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    /* Fashion photography aspect ratio */
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-smooth);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+    /* very subtle zoom */
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(62, 39, 35, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-action {
+    background-color: var(--color-ivory);
+    color: var(--color-warm-brown);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transform: translateY(20px);
+    transition: transform var(--transition-smooth);
+}
+
+.product-card:hover .product-action {
+    transform: translateY(0);
+}
+
+.product-info {
+    padding: var(--spacing-md) 0 var(--spacing-sm) 0;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.product-desc {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-text-dark);
+    font-weight: 300;
+    opacity: 0.6;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+    line-height: 1.6;
+}
+
+.product-price {
+    font-family: var(--font-heading-alt);
+    font-size: 1.2rem;
+    color: var(--color-muted-gold);
+    font-weight: 600;
+}

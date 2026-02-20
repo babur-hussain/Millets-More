@@ -1,0 +1,32 @@
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--color-warm-brown);
+    /* Mapped to deep chocolate */
+    margin-bottom: var(--spacing-sm);
+}
+
+.about-divider {
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-muted-gold);
+    margin: 0 auto var(--spacing-md);
+}
+
+.about-text {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--color-text-dark);
+    /* Using ivory */
+    opacity: 0.7;
+    margin-bottom: var(--spacing-md);
+    line-height: 2.2;
+    letter-spacing: 0.05em;
+}

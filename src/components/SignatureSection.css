@@ -1,0 +1,98 @@
+.signature-section {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: var(--spacing-xxl) 0;
+    /* Add significant spacing around this premium section */
+}
+
+.signature-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1;
+    object-fit: cover;
+    filter: brightness(0.8);
+    /* Slightly dim the video itself */
+}
+
+.signature-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(28, 20, 18, 1) 0%,
+            rgba(28, 20, 18, 0.6) 20%,
+            rgba(28, 20, 18, 0.6) 80%,
+            rgba(28, 20, 18, 1) 100%);
+    z-index: 2;
+}
+
+.signature-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 var(--spacing-md);
+    color: var(--color-text-dark);
+}
+
+.signature-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--color-muted-gold);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.signature-divider {
+    width: 2px;
+    height: 80px;
+    background-color: var(--color-muted-gold);
+    margin: 0 auto var(--spacing-md);
+    box-shadow: 0 0 10px rgba(198, 168, 94, 0.3);
+}
+
+.signature-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.signature-text {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    /* Ivory text */
+    opacity: 0.9;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Animations specific to signature section */
+.sig-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1), transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sig-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  /* Ultra-Luxury Dark Palette */
+  --color-ivory: #F4EDE6;
+  /* Used now for text */
+  --color-beige: #2A1E1B;
+  /* Secondary Espresso */
+  --color-warm-brown: #1C1412;
+  /* Deep Chocolate Background */
+  --color-muted-gold: #C6A85E;
+  --color-text-dark: #F4EDE6;
+  /* Swap dark text to ivory */
+  --color-text-light: #F4EDE6;
+
+  --header-bg: rgba(28, 20, 18, 0.9);
+  --header-border: rgba(244, 237, 230, 0.05);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-heading-alt: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing - Balanced for bespoke look */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 5rem;
+  --spacing-xxl: 8rem;
+
+  /* Dark Mode VIP Shadows */
+  --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
+  --shadow-luxury: 0 20px 60px -15px rgba(0, 0, 0, 0.6);
+
+  /* Transitions - Ultra slow and refined */
+  --transition-slow: 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-smooth: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.light-mode {
+  --color-warm-brown: #F4EDE6;
+  /* Ivory background */
+  --color-beige: #EAE0D5;
+  /* Lighter beige for cards */
+  --color-text-dark: #1C1412;
+  /* Deep chocolate text */
+  --color-text-light: #2A1E1B;
+  /* Espresso text */
+  --header-bg: rgba(244, 237, 230, 0.9);
+  --header-border: rgba(28, 20, 18, 0.05);
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-warm-brown);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  /* Slight letter spacing for elegant feel */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility Classes */
+.text-gold {
+  color: var(--color-muted-gold);
+}
+
+.bg-beige {
+  background-color: var(--color-beige);
+}
+
+.bg-brown {
+  background-color: var(--color-warm-brown);
+  color: var(--color-text-light);
+}
+
+.text-label {
+  font-family: var(--font-body);
+  font-weight: 300;
+  /* Light weight */
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  /* Uppercase small caps style */
+  letter-spacing: 0.25em;
+  /* Large elegant spacing */
+  color: var(--color-text-dark);
+  opacity: 0.8;
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+/* Generous Whitespace Containers */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section-padding {
+  padding: var(--spacing-xl) 0;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: var(--spacing-xxl) 0;
+  }
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered Line-by-Line Delays for elegant sequential reveals */
+.delay-1 {
+  transition-delay: 0.2s;
+}
+
+.delay-2 {
+  transition-delay: 0.4s;
+}
+
+.delay-3 {
+  transition-delay: 0.6s;
+}
+
+.delay-4 {
+  transition-delay: 0.8s;
+}
+
+.delay-5 {
+  transition-delay: 1.0s;
+}
+
+/* Gold Underline Animation for Headings */
+.heading-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.heading-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-muted-gold);
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.3s;
+  /* Delay to let text fade in first */
+}
+
+/* We trigger the line expansion when the parent .fade-in or itself becomes visible */
+.visible .heading-underline::after,
+.heading-underline.visible::after {
+  width: 100%;
+}
+
+/* Premium Dark Mode Button Base Base */
+.btn-premium {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--color-muted-gold);
+  border: 1px solid var(--color-muted-gold);
+  padding: 1rem 2.5rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  /* Minimal */
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  /* Uppercase */
+  letter-spacing: 0.2em;
+  /* Letter spaced */
+  cursor: pointer;
+  border-radius: 30px;
+  /* Soft precision */
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-muted-gold);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--transition-smooth);
+  z-index: -1;
+}
+
+.btn-premium:hover {
+  color: var(--color-warm-brown);
+  border-color: var(--color-muted-gold);
+  box-shadow: 0 0 25px rgba(198, 168, 94, 0.5);
+  /* Glowing gold effect */
+}
+
+.btn-premium:hover::before {
+  transform: scaleY(1);
+}
+
+/* Cinematic Image Reveal */
+.image-reveal {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-reveal img {
+  transform: scale(1.1);
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-reveal.visible img {
+  transform: scale(1);
+}

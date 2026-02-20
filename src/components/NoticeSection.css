@@ -1,0 +1,24 @@
+.notice-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--spacing-sm) !important;
+    padding-bottom: var(--spacing-xl) !important;
+}
+
+.notice-box {
+    border: 1px solid var(--color-muted-gold);
+    padding: var(--spacing-md) var(--spacing-lg);
+    max-width: 800px;
+    background-color: rgba(212, 175, 55, 0.05);
+    /* very faint gold tint */
+    text-align: center;
+}
+
+.notice-text {
+    font-family: var(--font-heading-alt);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-style: italic;
+    color: var(--color-warm-brown);
+    letter-spacing: 0.05em;
+}
