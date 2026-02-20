@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useHaptics } from '../hooks/useHaptics';
 import Header from './Header';
 import Footer from './Footer';
 import './CategoryPage.css';
@@ -79,14 +80,49 @@ const categoryProducts = [
 function CategoryPage() {
     const { id } = useParams();
     const categoryId = parseInt(id, 10);
+    const { triggerHaptic } = useHaptics();
 
     const info = categoryData[categoryId] || { title: 'Collection', description: 'Artisanal Selection' };
     const products = categoryProducts.filter(p => p.categoryId === categoryId);
     const displayProducts = products.length > 0 ? products : categoryProducts.slice(0, 4); // Fallback to show grid
 
-    const handleOrder = (productTitle, productPrice) => {
-        const message = encodeURIComponent(`Hi, I'm interested in ordering: ${productTitle} (${productPrice})`);
-        window.open(`https://wa.me/9111451111?text=${message}`, '_blank');
+    // Component to isolate image loading state per product
+    const CategoryProductCard = ({ product, index }) => {
+        const [imageLoaded, setImageLoaded] = useState(false);
+        const [isPressed, setIsPressed] = useState(false);
+
+        const handleOrder = (productTitle, productPrice) => {
+            triggerHaptic([20]);
+            const message = encodeURIComponent(`Hi, I'm interested in ordering: ${productTitle} (${productPrice})`);
+            window.open(`https://wa.me/9111451111?text=${message}`, '_blank');
+        };
+
+        return (
+            <div className={`cat-product-card fade-in delay-${(index % 5) + 1}`}>
+                <div className={`cat-product-image-container ${!imageLoaded ? 'shimmer' : ''}`}>
+                    <img
+                        src={product.image}
+                        alt={product.title}
+                        className={`cat-product-image ${imageLoaded ? 'loaded' : 'loading'}`}
+                        onLoad={() => setImageLoaded(true)}
+                    />
+                </div>
+                <div className="cat-product-info">
+                    <h3 className="cat-product-title">{product.title}</h3>
+                    <p className="cat-product-desc">{product.description}</p>
+                    <p className="cat-product-price">{product.price}</p>
+                    <button
+                        className={`btn-premium cat-product-order ${isPressed ? 'btn-pressed' : ''}`}
+                        onClick={() => handleOrder(product.title, product.price)}
+                        onPointerDown={() => setIsPressed(true)}
+                        onPointerUp={() => setIsPressed(false)}
+                        onPointerLeave={() => setIsPressed(false)}
+                    >
+                        Order
+                    </button>
+                </div>
+            </div>
+        );
     };
 
     useEffect(() => {
@@ -124,17 +160,7 @@ function CategoryPage() {
 
                     <div className="category-grid">
                         {displayProducts.map((product, index) => (
-                            <div key={product.id} className={`cat-product-card fade-in delay-${(index % 5) + 1}`}>
-                                <div className="cat-product-image-container">
-                                    <img src={product.image} alt={product.title} className="cat-product-image" />
-                                </div>
-                                <div className="cat-product-info">
-                                    <h3 className="cat-product-title">{product.title}</h3>
-                                    <p className="cat-product-desc">{product.description}</p>
-                                    <p className="cat-product-price">{product.price}</p>
-                                    <button className="btn-premium cat-product-order" onClick={() => handleOrder(product.title, product.price)}>Order</button>
-                                </div>
-                            </div>
+                            <CategoryProductCard key={product.id} product={product} index={index} />
                         ))}
                     </div>
                 </div>

@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSwipeZoom } from '../hooks/useSwipeZoom';
 import './Collections.css';
 import imgMilletCake from '../assets/Images/enhanced_millet_cake.png';
 import imgChunkyCookies from '../assets/Images/enhanced_chunky_cookies.png';
@@ -15,6 +17,30 @@ const categories = [
 ];
 
 function Collections() {
+    const { carouselRef } = useSwipeZoom();
+
+    // Helper component to isolate state for each image
+    const CollectionCard = ({ cat, index }) => {
+        const [imageLoaded, setImageLoaded] = useState(false);
+
+        return (
+            <Link to={`/category/${cat.id}`} className={`collection-card fade-in delay-${(index % 5) + 1}`} style={{ textDecoration: 'none' }}>
+                <div className={`collection-image-wrapper ${!imageLoaded ? 'shimmer' : ''}`}>
+                    <img
+                        src={cat.image}
+                        alt={cat.title}
+                        className={`collection-img ${imageLoaded ? 'loaded' : 'loading'}`}
+                        onLoad={() => setImageLoaded(true)}
+                    />
+                    <div className="collection-overlay">
+                        <span className="collection-action">Discover</span>
+                    </div>
+                </div>
+                <h3 className="collection-name">{cat.title}</h3>
+            </Link>
+        );
+    };
+
     return (
         <section className="collections section-padding" id="collections">
             <div className="container">
@@ -23,17 +49,9 @@ function Collections() {
                     <div className="collections-divider"></div>
                 </div>
 
-                <div className="collections-grid">
+                <div className="collections-grid" ref={carouselRef}>
                     {categories.map((cat, index) => (
-                        <Link to={`/category/${cat.id}`} key={cat.id} className={`collection-card fade-in delay-${(index % 5) + 1}`} style={{ textDecoration: 'none' }}>
-                            <div className="collection-image-wrapper">
-                                <img src={cat.image} alt={cat.title} className="collection-img" />
-                                <div className="collection-overlay">
-                                    <span className="collection-action">Discover</span>
-                                </div>
-                            </div>
-                            <h3 className="collection-name">{cat.title}</h3>
-                        </Link>
+                        <CollectionCard key={cat.id} cat={cat} index={index} />
                     ))}
                 </div>
             </div>

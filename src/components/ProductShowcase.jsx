@@ -7,7 +7,8 @@ const products = [
         title: 'The Noor Eclair',
         description: 'Pearl millet craquelin, infused saffron diplomat cream, 24k gold leaf.',
         price: '₹ 1,200',
-        image: 'https://images.unsplash.com/photo-1549144498-8df0dfbb76a1?q=80&w=1200&auto=format&fit=crop'
+        image: 'https://images.unsplash.com/photo-1549144498-8df0dfbb76a1?q=80&w=1200&auto=format&fit=crop',
+        isLimited: true
     },
     {
         id: 2,
@@ -42,6 +43,7 @@ function ProductShowcase() {
                             description={product.description}
                             price={product.price}
                             image={product.image}
+                            isLimited={product.isLimited}
                         />
                     ))}
                 </div>

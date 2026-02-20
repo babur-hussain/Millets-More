@@ -51,7 +51,8 @@
 
 .signature-title {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(32px, 8vw, 42px);
+    /* Large luxury heading */
     font-weight: 300;
     letter-spacing: 0.05em;
     color: var(--color-muted-gold);
@@ -75,7 +76,8 @@
 
 .signature-text {
     font-family: var(--font-body);
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(16px, 4vw, 18px);
+    /* Body typography rule */
     font-weight: 300;
     letter-spacing: 0.15em;
     text-transform: uppercase;

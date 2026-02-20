@@ -1,0 +1,69 @@
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-beige);
+    /* Soft beige screen */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    /* Let clicks pass through just in case */
+}
+
+.intro-overlay.fade-out {
+    opacity: 0;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.intro-line {
+    width: 0;
+    height: 2px;
+    background-color: var(--color-muted-gold);
+    animation: drawLine 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.intro-text {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 8vw, 42px);
+    color: var(--color-warm-brown);
+    /* Dark deep chocolate contrast */
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeText 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 0.8s;
+    /* Start fading in as line finishes */
+}
+
+@keyframes drawLine {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 60px;
+    }
+}
+
+@keyframes fadeText {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

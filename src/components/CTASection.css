@@ -4,124 +4,120 @@
     /* soft ivory border */
     border-bottom: 1px solid rgba(244, 237, 230, 0.08);
     /* soft ivory border */
+    background-color: var(--color-warm-brown);
 }
 
 .cta-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
 }
 
 .cta-title {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(32px, 6vw, 56px);
     color: var(--color-text-dark);
     /* Ensure visibility in dark mode */
+    max-width: 900px;
 }
 
-.order-options {
+.cta-grid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-md);
     width: 100%;
-    max-width: 600px;
-    margin-top: var(--spacing-sm);
+    max-width: 1000px;
+    gap: var(--spacing-lg);
 }
 
-@media (min-width: 768px) {
-    .order-options {
+@media (min-width: 900px) {
+    .cta-grid {
         flex-direction: row;
-        align-items: flex-start;
         justify-content: space-between;
-        max-width: 900px;
+        align-items: flex-start;
+        gap: 0;
     }
 }
 
-.order-option {
-    flex: 1;
-    width: 100%;
+.cta-column {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1;
+    width: 100%;
 }
 
-.order-divider {
+.cta-divider {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-muted-gold);
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
     padding: var(--spacing-md) 0;
-    opacity: 0.6;
 }
 
-@media (min-width: 768px) {
-    .order-divider {
+@media (min-width: 900px) {
+    .cta-divider {
         padding: 0 var(--spacing-lg);
         height: 100%;
-        margin-top: 2rem;
+        margin-top: 50px;
+        /* Align slightly downward with the fields */
     }
 }
 
-.whatsapp-btn {
-    width: 100%;
-    max-width: 350px;
+.cta-or {
+    color: var(--color-muted-gold);
+    opacity: 0.8 !important;
+    margin-bottom: 0 !important;
 }
 
-.luxury-form {
+.cta-form {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
 }
 
-.luxury-input {
-    background: transparent;
+.cta-input {
+    background-color: transparent;
     border: 1px solid rgba(198, 168, 94, 0.3);
-    /* subtle gold accent */
     border-radius: 8px;
-    /* soft rounded inputs */
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.25rem;
     color: var(--color-text-dark);
     font-family: var(--font-body);
     font-size: 1rem;
     outline: none;
-    transition: all var(--transition-smooth);
+    transition: border-color var(--transition-smooth);
 }
 
-.luxury-input::placeholder {
-    color: rgba(244, 237, 230, 0.4);
+.cta-input::placeholder {
+    color: var(--color-text-dark);
+    opacity: 0.4;
 }
 
-.luxury-input:focus {
+.cta-input:focus {
     border-color: var(--color-muted-gold);
-    /* gold accent border on focus */
-    box-shadow: 0 0 15px rgba(198, 168, 94, 0.1);
 }
 
-.submit-btn {
-    margin-top: var(--spacing-xs);
-}
-
-.thank-you-message {
-    padding: var(--spacing-lg) var(--spacing-md);
-    border: 1px solid rgba(198, 168, 94, 0.5);
-    /* subtle gold border */
-    border-radius: 8px;
-    background: rgba(198, 168, 94, 0.05);
-    /* very soft gold tint */
-    max-width: 400px;
-}
-
-.thank-you-title {
-    font-family: var(--font-heading);
+.btn-gold-outline {
+    background-color: transparent;
     color: var(--color-muted-gold);
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-xs);
-    font-weight: 300;
+    border: 1px solid var(--color-muted-gold);
+    padding: 1rem 3rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all var(--transition-smooth);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.btn-gold-outline:hover {
+    background-color: var(--color-muted-gold);
+    color: var(--color-warm-brown);
+    box-shadow: 0 4px 15px rgba(198, 168, 94, 0.2);
 }

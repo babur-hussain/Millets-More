@@ -1,3 +1,8 @@
+.about {
+    padding-top: var(--spacing-xl) !important;
+    padding-bottom: var(--spacing-md) !important;
+}
+
 .about-content {
     max-width: 800px;
     margin: 0 auto;
@@ -6,7 +11,7 @@
 
 .about-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-size: clamp(32px, 8vw, 42px);
     color: var(--color-warm-brown);
     /* Mapped to deep chocolate */
     margin-bottom: var(--spacing-sm);
@@ -21,12 +26,19 @@
 
 .about-text {
     font-family: var(--font-body);
-    font-size: 1.25rem;
+    font-size: clamp(16px, 4vw, 18px);
+    /* Body typography rule */
     font-weight: 300;
     color: var(--color-text-dark);
     /* Using ivory */
-    opacity: 0.7;
+    opacity: 0.8;
     margin-bottom: var(--spacing-md);
-    line-height: 2.2;
+    line-height: 1.8;
     letter-spacing: 0.05em;
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+.about-text:last-child {
+    margin-bottom: 0;
 }

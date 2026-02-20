@@ -8,17 +8,20 @@
 
 .notice-box {
     border: 1px solid var(--color-muted-gold);
-    padding: var(--spacing-md) var(--spacing-lg);
-    max-width: 800px;
-    background-color: rgba(212, 175, 55, 0.05);
-    /* very faint gold tint */
+    padding: var(--spacing-lg) var(--spacing-md);
+    max-width: 600px;
+    background-color: transparent;
     text-align: center;
+    width: 100%;
 }
 
 .notice-text {
     font-family: var(--font-heading-alt);
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-size: clamp(22px, 5vw, 26px);
+    /* Subheading typography rule */
     font-style: italic;
-    color: var(--color-warm-brown);
+    color: var(--color-text-dark);
     letter-spacing: 0.05em;
+    line-height: 1.6;
+    opacity: 0.9;
 }

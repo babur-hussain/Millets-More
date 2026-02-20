@@ -1,0 +1,43 @@
+.best-sellers {
+    background-color: var(--color-warm-brown);
+    color: var(--color-text-light);
+    border-bottom: 1px solid rgba(244, 237, 230, 0.05);
+}
+
+body.light-mode .best-sellers {
+    background-color: var(--color-ivory);
+    color: var(--color-text-dark);
+}
+
+.best-sellers-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.best-sellers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .best-sellers-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: var(--spacing-sm);
+        padding-bottom: var(--spacing-sm);
+        /* Hide scrollbar for cleaner look */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .best-sellers-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .best-sellers-grid>* {
+        min-width: 80vw;
+        scroll-snap-align: center;
+    }
+}

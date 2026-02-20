@@ -1,0 +1,124 @@
+.sticky-cta-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-beige);
+    border-top: 1px solid rgba(28, 20, 18, 0.1);
+    padding: var(--spacing-sm);
+    z-index: 90;
+    transform: translateY(100%);
+    transition: transform var(--transition-smooth);
+    display: flex;
+    justify-content: center;
+    box-shadow: var(--shadow-luxury);
+}
+
+.sticky-cta-bar.visible {
+    transform: translateY(0);
+}
+
+.sticky-cta-content {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-md);
+}
+
+.sticky-label {
+    font-family: var(--font-heading-alt);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--color-warm-brown);
+    opacity: 0.8;
+}
+
+.btn-sticky-order {
+    background-color: var(--color-warm-brown);
+    color: var(--color-ivory);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+}
+
+.btn-sticky-order:active {
+    transform: scale(0.96);
+}
+
+/* Floating WhatsApp Icon */
+.sticky-whatsapp-icon {
+    position: fixed;
+    bottom: calc(var(--spacing-md) + 70px);
+    /* Above the sticky bar */
+    right: var(--spacing-md);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-warm-brown); /* Dark background for premium feel */
+    border: 1px solid var(--color-muted-gold);
+    color: var(--color-muted-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 95;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform var(--transition-smooth), opacity var(--transition-smooth), background-color var(--transition-smooth);
+    box-shadow: 0 4px 15px rgba(198, 168, 94, 0.2);
+}
+
+body.light-mode .sticky-whatsapp-icon {
+    background-color: var(--color-ivory);
+    box-shadow: var(--shadow-soft);
+}
+
+.sticky-whatsapp-icon.visible {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.sticky-whatsapp-icon:hover {
+    background-color: var(--color-muted-gold);
+    color: var(--color-warm-brown);
+}
+
+.sticky-whatsapp-icon svg {
+    width: 24px;
+    height: 24px;
+    transition: color var(--transition-smooth);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .sticky-cta-content {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        padding: 0;
+    }
+
+    .sticky-label {
+        font-size: 0.85rem;
+    }
+
+    .btn-sticky-order {
+        width: 100%;
+        padding: 1.2rem;
+        font-size: 0.85rem;
+        border-radius: 0; /* Full width button look */
+        margin-top: 5px;
+    }
+
+    .sticky-whatsapp-icon {
+        bottom: calc(var(--spacing-md) + 90px);
+        /* Adjust pushed height for stacked mobile nav */
+    }
+}

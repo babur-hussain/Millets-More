@@ -1,3 +1,7 @@
+.collections {
+    padding-top: var(--spacing-lg) !important;
+}
+
 .collections-header {
     text-align: center;
     margin-bottom: var(--spacing-lg);
@@ -5,7 +9,7 @@
 
 .collections-title {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-size: clamp(32px, 8vw, 42px);
     color: var(--color-warm-brown);
     margin-bottom: var(--spacing-sm);
 }
@@ -18,22 +22,37 @@
 }
 
 .collections-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
-    /* Increased for bespoke feel */
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+    padding-left: var(--spacing-sm);
+    /* safe area start */
+    padding-right: var(--spacing-sm);
 }
 
-/* Make the first two items larger on desktop to break monotony */
+.collections-grid::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+/* Desktop override to retain luxury grid */
 @media (min-width: 900px) {
     .collections-grid {
+        display: grid;
         grid-template-columns: repeat(6, 1fr);
+        overflow-x: visible;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .collection-card:nth-child(1),
     .collection-card:nth-child(2) {
         grid-column: span 3;
-        aspect-ratio: 16/9;
     }
 
     .collection-card:nth-child(3),
@@ -44,22 +63,38 @@
 }
 
 .collection-card {
+    flex: 0 0 85%;
+    /* Shows most of one card, hints at next */
+    scroll-snap-align: center;
     cursor: pointer;
     display: flex;
     flex-direction: column;
 }
 
+@media (min-width: 900px) {
+    .collection-card {
+        flex: none;
+    }
+}
+
 .collection-image-wrapper {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 1;
-    /* Default to square, overridden above for some */
+    aspect-ratio: 4/5;
+    /* Taller luxury portrait */
     margin-bottom: var(--spacing-sm);
     background-color: var(--color-warm-brown);
-    /* fallback */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 900px) {
+    .collection-image-wrapper {
+        aspect-ratio: 1;
+        /* Square fallback */
+        border-radius: 0;
+        box-shadow: none;
+    }
 
     .collection-card:nth-child(1) .collection-image-wrapper,
     .collection-card:nth-child(2) .collection-image-wrapper {
@@ -110,7 +145,8 @@
 
 .collection-name {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: clamp(22px, 5vw, 26px);
+    /* Subheading typography rule */
     color: var(--color-text-dark);
     text-align: center;
     letter-spacing: 0.1em;

@@ -1,116 +1,135 @@
 .footer {
-    background-color: var(--color-beige);
-    /* Espresso brown */
-    color: var(--color-ivory);
-    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
-    position: relative;
+    background-color: var(--color-warm-brown);
+    padding: var(--spacing-xxl) 0 var(--spacing-md) 0;
+    color: var(--color-text-dark);
 }
 
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background-color: rgba(212, 175, 55, 0.3);
-    /* faint gold line */
-}
-
-.footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
 }
 
-@media (min-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr 2fr;
+@media (min-width: 900px) {
+    .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
     }
 }
 
-.footer-brand {
-    max-width: 300px;
-}
-
-.footer-logo {
+.footer-logo .logo-text {
     font-family: var(--font-heading);
-    font-size: 2rem;
-    color: var(--color-muted-gold);
-    margin-bottom: var(--spacing-xs);
-    letter-spacing: 0.05em;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-dark);
+    /* In ref it says Millets & More but the user's name is Kavya Kapoor. The file uses Kavya Kapoor text below but Millets & More top left on actual. Assuming text is fine */
 }
 
-.footer-tagline {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(253, 251, 247, 0.6);
-}
-
-.footer-links-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: var(--spacing-md);
 }
 
-.footer-heading {
-    font-family: var(--font-heading-alt);
-    font-size: 1.25rem;
-    color: var(--color-muted-gold);
-    margin-bottom: var(--spacing-sm);
-    font-weight: 500;
+@media (min-width: 900px) {
+    .footer-nav {
+        flex-direction: row;
+        gap: var(--spacing-xl);
+    }
 }
 
-.footer-links {
+.footer-nav-link {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    color: var(--color-text-dark);
+    opacity: 0.8;
+    transition: opacity var(--transition-smooth), color var(--transition-smooth);
+}
+
+.footer-nav-link:hover {
+    opacity: 1;
+    color: var(--color-muted-gold);
+}
+
+.btn-theme-toggle {
+    background-color: transparent;
+    border: 1px solid rgba(198, 168, 94, 0.5);
+    color: var(--color-muted-gold);
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+}
+
+.btn-theme-toggle:hover {
+    background-color: rgba(198, 168, 94, 0.1);
+}
+
+.icon-sun {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(244, 237, 230, 0.1);
+    /* Subtle ivory line */
+    margin-bottom: var(--spacing-xl);
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 900px) {
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+        gap: 0;
+    }
+}
+
+.footer-bottom-col {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xs);
 }
 
-.footer-links li,
-.footer-links a {
+.footer-bottom-label {
+    font-family: var(--font-heading-alt);
+    font-size: 1.5rem;
+    color: var(--color-muted-gold);
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-bottom-link {
     font-family: var(--font-body);
     font-size: 0.9rem;
-    color: rgba(253, 251, 247, 0.8);
+    color: var(--color-text-dark);
+    opacity: 0.8;
     transition: color var(--transition-smooth);
 }
 
-.footer-links a:hover {
+a.footer-bottom-link:hover {
     color: var(--color-muted-gold);
-}
-
-.footer-bottom {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(253, 251, 247, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-sm);
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    color: rgba(253, 251, 247, 0.5);
-    text-align: center;
-}
-
-@media (min-width: 768px) {
-    .footer-bottom {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-
-.footer-legal {
-    display: flex;
-    gap: var(--spacing-md);
-}
-
-.footer-legal a:hover {
-    color: var(--color-ivory);
+    opacity: 1;
 }

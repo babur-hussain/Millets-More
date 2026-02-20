@@ -7,8 +7,8 @@
 
 .showcase-title {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 3vw, 3rem);
-    color: var(--color-warm-brown);
+    font-size: clamp(32px, 8vw, 42px);
+    color: var(--color-text-dark);
     margin-bottom: var(--spacing-xs);
 }
 
@@ -16,22 +16,102 @@
     font-family: var(--font-body);
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    font-size: 0.9rem;
+    font-size: clamp(14px, 3vw, 16px);
     color: var(--color-muted-gold);
 }
 
-.showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-xl);
+/* Featured Spotlight */
+.spotlight-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxl);
+    /* Large gap between different products */
+}
+
+@media (min-width: 768px) {
+    .spotlight-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+        /* Tighter gap since they are side-by-side */
+    }
 }
 
 @media (min-width: 1024px) {
-    .showcase-grid {
+    .spotlight-list {
         grid-template-columns: repeat(3, 1fr);
         gap: var(--spacing-lg);
     }
+}
+
+.spotlight-container {
+    max-width: 100%;
+    /* Take full grid cell width instead of max-width */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.spotlight-image-wrapper {
+    width: 100%;
+    aspect-ratio: 3/2;
+    /* Shortened image ratio */
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+    /* Decreased spacing below image */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.spotlight-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.spotlight-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 var(--spacing-md);
+    /* Add side padding for breathing room */
+}
+
+.spotlight-title {
+    font-family: var(--font-heading);
+    font-size: clamp(26px, 6vw, 32px);
+    /* Slightly larger than standard subheadings */
+    color: var(--color-text-dark);
+    margin-bottom: 2px;
+    /* Decreased spacing */
+    letter-spacing: 0.05em;
+}
+
+.spotlight-desc {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 4vw, 18px);
+    color: var(--color-text-dark);
+    opacity: 0.8;
+    margin-bottom: var(--spacing-xs);
+    /* Decreased spacing */
+    line-height: 1.6;
+}
+
+.spotlight-price {
+    font-family: var(--font-heading-alt);
+    font-size: clamp(22px, 5vw, 26px);
+    color: var(--color-muted-gold);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    /* Further decreased spacing */
+}
+
+.spotlight-action {
+    width: 100%;
+    max-width: 300px;
 }
 
 .showcase-footer {
