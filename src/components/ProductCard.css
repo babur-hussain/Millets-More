@@ -9,8 +9,8 @@
 .product-image-container {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 3/4;
-    /* Fashion photography aspect ratio */
+    aspect-ratio: 4/3;
+    /* Reduced height for better widescreen viewing */
 }
 
 .product-image {

@@ -92,8 +92,8 @@
 
 .cat-product-image-container {
     width: 100%;
-    aspect-ratio: 4/5;
-    /* Tall, premium fashion feel */
+    aspect-ratio: 4/3;
+    /* Adjusted for widescreen without blowing up height */
     overflow: hidden;
     margin-bottom: var(--spacing-md);
 }
