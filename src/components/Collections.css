@@ -10,7 +10,7 @@
 .collections-title {
     font-family: var(--font-heading);
     font-size: clamp(32px, 8vw, 42px);
-    color: var(--color-warm-brown);
+    color: var(--color-text-dark); /* Changed to text-dark so it is ivory in dark mode and espresso in light mode */
     margin-bottom: var(--spacing-sm);
 }
 
@@ -69,6 +69,9 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    /* Removed fade-in interaction so slides are always ready to view */
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 @media (min-width: 900px) {

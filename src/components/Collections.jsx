@@ -24,7 +24,7 @@ function Collections() {
         const [imageLoaded, setImageLoaded] = useState(false);
 
         return (
-            <Link to={`/category/${cat.id}`} className={`collection-card fade-in delay-${(index % 5) + 1}`} style={{ textDecoration: 'none' }}>
+            <Link to={`/category/${cat.id}`} className="collection-card" style={{ textDecoration: 'none' }}>
                 <div className={`collection-image-wrapper ${!imageLoaded ? 'shimmer' : ''}`}>
                     <img
                         src={cat.image}
